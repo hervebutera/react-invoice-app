@@ -10,8 +10,10 @@ const NavBar = () => {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      document.documentElement.style.backgroundColor = "#141625";
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.style.backgroundColor = "#F8F7FC";
     }
   }, [theme]);
 
@@ -30,13 +32,13 @@ const NavBar = () => {
         <div className="float-right w-26 lg:float-none lg:w-14 lg:h-26 lg:absolute lg:bottom-0">
           <div className="flex flex-row   lg:flex-col ">
             <img
-              className="w-5 h-5 m-4 cursor-pointer"
+              className="w-3 h-3 m-6 cursor-pointer"
               src={theme === "light" ? moon : sun}
               onClick={themeToggleHandler}
               alt="theme icon"
             />
             <div className=" py-4 px-5 border-l border-l-profileImg_separator lg:border-l-0 lg:border-t lg:border-t-profileImg_separator  lg:px-4">
-              <img className="w-6" src={user} alt="user"/>
+              <img className="w-6" src={user} alt="user" />
             </div>
           </div>
         </div>
