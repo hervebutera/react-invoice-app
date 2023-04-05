@@ -47,8 +47,8 @@ const StatusLabel = (props) => {
   return (
     <div
       className={` ${labelColors.displayedBackground.light} ${labelColors.displayedBackground.dark}  
-      flex flex-row  w-24 mt-6 py-2 justify-center space-x-1
-      rounded-lg self-end md:self-center md:mt-0 `}
+      flex flex-row  w-24 py-2 justify-center space-x-1
+      rounded-lg self-end ${props.styles} md:self-center md:mt-0 `}
     >
       <div
         className={` w-2 h-2 rounded-full ${labelColors.displayedDot.light}

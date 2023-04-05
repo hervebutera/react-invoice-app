@@ -8,8 +8,9 @@ module.exports = {
     screens: {
       sm: "480px",
       md: "768px",
-      lg: "976px",
-      xl: "1440px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px"
     },
     colors: {
       body_light_background: "#F8F7FC",
@@ -42,8 +43,11 @@ module.exports = {
       nextArrow_dark_font: "#433F73",
       deleteBtn_background: "#EC5A5C",
       editBtn_light_background: "#F9FBFF",
+      editBtn_dark_background: "#252A43",
       editBtn_light_font: "#C8C8D5",
-      profileImg_separator: "#898CB2",  
+      profileImg_separator: "#898CB2", 
+      invoiceAmount_light_background: "#F9FAFE",
+      invoiceAmount_dark_background: "#252945",
     },
     extend: {},
   },

@@ -19,7 +19,7 @@ const HomeHeader = () => {
           <option>Pending</option>
           <option>Paid</option>
         </select>
-        <Button styles="bg-purpleMainColor text-white font-bold pl-2 space-x-2">
+        <Button styles="bg-purpleMainColor text-white font-bold pl-2 space-x-2 py-3.5">
           <span className="bg-white pt-0 pb-1 px-2 mr-2  text-purpleMainColor text-lg font-bold rounded-full md:mr-3">
             +
           </span>

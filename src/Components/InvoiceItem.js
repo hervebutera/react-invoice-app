@@ -33,7 +33,7 @@ const InvoiceItem = (props) => {
         {props.invoiceSentTo}
       </div>
       <div className="flex flex-row flex-nowrap space-x-2 order-last lg:space-x-4">
-        <StatusLabel labelName={props.status} />
+        <StatusLabel labelName={props.status} styles={" mt-6"} />
         <img
           src={ArrowHead}
           className="hidden h-3 w-3 self-center cursor-pointer md:inline-flex"
