@@ -27,7 +27,7 @@ const InvoiceItem = (props) => {
         $ {props.invoiceDueAmount}
       </div>
       <div
-        className="self-end text-xs text-grey_font dark:text-darkWhite_font md:w-32 md:text-base 
+        className="self-end text-xs text-grey_font dark:text-lightGrey_font md:w-32 md:text-base 
       md:self-center lg:w-28 "
       >
         {props.invoiceSentTo}
@@ -36,7 +36,7 @@ const InvoiceItem = (props) => {
         <StatusLabel labelName={props.status} />
         <img
           src={ArrowHead}
-          className="hidden md:inline-flex h-3 w-3 self-center cursor-pointer"
+          className="hidden h-3 w-3 self-center cursor-pointer md:inline-flex"
         />
       </div>
     </div>
