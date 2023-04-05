@@ -1,6 +1,6 @@
 import HomePageLayout from "../Layouts/HomePageLayout";
 import HomeHeader from "../Components/HomeHeader";
-import InvoicesList from "../Layouts/InvoicesList";
+import InvoicesList from "../Components/InvoicesList";
 
 const InvoicesPage = () => {
   return (

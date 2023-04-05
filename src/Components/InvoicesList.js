@@ -1,4 +1,4 @@
-import InvoiceItem from "../Components/InvoiceItem";
+import InvoiceItem from "./InvoiceItem";
 
 const InvoicesList = () => {
   return (
