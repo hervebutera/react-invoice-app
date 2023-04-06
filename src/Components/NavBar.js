@@ -28,8 +28,11 @@ const NavBar = () => {
   return (
     <div className="flex flex-row lg:flex-col">
       <img className="w-14 z-10" src={logo} alt="logo" />
-      <div className="w-screen  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:h-screen lg:rounded-r-xl">
-        <div className="float-right w-26 lg:float-none lg:w-14 lg:h-26 lg:absolute lg:bottom-0">
+      <div
+        className="w-screen  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background 
+              -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:min-h-screen lg:h-full lg:rounded-r-xl"
+      >
+        <div className="float-right w-26 lg:float-none lg:w-14 lg:h-26 lg:fixed lg:bottom-0">
           <div className="flex flex-row   lg:flex-col ">
             <img
               className="w-3 h-3 m-6 cursor-pointer"
@@ -37,7 +40,10 @@ const NavBar = () => {
               onClick={themeToggleHandler}
               alt="theme icon"
             />
-            <div className=" py-4 px-5 border-l border-l-profileImg_separator lg:border-l-0 lg:border-t lg:border-t-profileImg_separator  lg:px-4">
+            <div
+              className=" py-4 px-5 border-l border-l-profileImg_separator lg:border-l-0 lg:border-t 
+                  lg:border-t-profileImg_separator  lg:px-4"
+            >
               <img className="w-6" src={user} alt="user" />
             </div>
           </div>
