@@ -26,16 +26,16 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex flex-row lg:flex-col">
+    <div className="flex flex-row lg:flex-col z-10">
       <img className="w-14 z-10" src={logo} alt="logo" />
       <div
         className="w-screen  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background 
-              -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:min-h-screen lg:h-full lg:rounded-r-xl"
+              -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:h-full lg:rounded-r-xl"
       >
         <div className="float-right w-26 lg:float-none lg:w-14 lg:h-26 lg:fixed lg:bottom-0">
           <div className="flex flex-row   lg:flex-col ">
             <img
-              className="w-3 h-3 m-6 cursor-pointer"
+              className="w-3 h-3 mt-5 mx-6 cursor-pointer lg:m-6"
               src={theme === "light" ? moon : sun}
               onClick={themeToggleHandler}
               alt="theme icon"
