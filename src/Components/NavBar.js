@@ -26,7 +26,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex flex-row lg:flex-col z-10">
+    <div className="flex flex-row lg:flex-col z-10 relative">
       <img className="w-14 z-10" src={logo} alt="logo" />
       <div
         className="w-screen  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background 
