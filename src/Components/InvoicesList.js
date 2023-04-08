@@ -1,9 +1,9 @@
-import InvoiceItem from "./InvoiceItem";
+import InvoiceListItem from "./InvoiceListItem";
 
 const InvoicesList = () => {
   return (
     <div className="relative flex flex-col space-y-4">
-      <InvoiceItem
+      <InvoiceListItem
         invoiceId={"RT304"}
         invoiceDueDate={"13 Aug 2023"}
         invoiceDueAmount={"1200.89"}

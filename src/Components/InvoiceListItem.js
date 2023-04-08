@@ -1,7 +1,7 @@
 import StatusLabel from "./StatusLabel";
 import ArrowHead from "../Assets/imgs/arrowhead.png";
 
-const InvoiceItem = (props) => {
+const InvoiceListItem = (props) => {
   return (
     <div
       className="bg-invoiceItem_light_background dark:bg-invoiceItem_dark_background max-h-[7rem] 
@@ -43,4 +43,4 @@ const InvoiceItem = (props) => {
   );
 };
 
-export default InvoiceItem;
+export default InvoiceListItem;
