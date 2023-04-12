@@ -29,8 +29,8 @@ const NavBar = () => {
     <div className="flex flex-row lg:flex-col z-10 relative">
       <img className="w-14 z-10" src={logo} alt="logo" />
       <div
-        className="w-screen  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background 
-              -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:h-full lg:rounded-r-xl"
+        className="w-full  h-14  bg-sideBar_light_background dark:bg-sideBar_dark_background 
+         -ml-6 lg:-mt-14 lg:ml-0 lg:w-14 lg:h-full lg:rounded-r-xl"
       >
         <div className="float-right w-26 lg:float-none lg:w-14 lg:h-26 lg:fixed lg:bottom-0">
           <div className="flex flex-row   lg:flex-col ">
