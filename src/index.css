@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body.dark {
+  --scroll-track-background: #f1f1f1;
+  --scroll-thumb-background: #a8a8a8;
+}
+
+body.light {
+  --scroll-track-background: #141625;
+  --scroll-thumb-background: #1f213a;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#invoice-form::-webkit-scrollbar {
+  width: 10px;
+}
+#invoice-form::-webkit-scrollbar-track {
+  padding: 2px 0px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+#invoice-form::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 500px) {
+    .invoice-form-layout {
+      width: 500px;
+    }
+  }

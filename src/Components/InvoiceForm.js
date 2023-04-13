@@ -5,7 +5,11 @@ import Button from "./Button";
 
 const InvoiceForm = () => {
   return (
-      <form className="flex flex-col space-y-8 px-10 py-8 lg:py-14 lg:pl-24 h-screen overflow-auto">
+    <div className="px-5 pt-8 md:px-10 lg:pl-24">
+      <form
+        className="flex flex-col space-y-8 overflow-auto pr-3"
+        id="invoice-form"
+      >
         <div className="flex flex-col flex-nowrap space-y-2">
           <span className="w-full text-xs font-bold text-purpleMainColor">
             Bill From
@@ -102,52 +106,56 @@ const InvoiceForm = () => {
             inputType={"text"}
           />
         </div>
-        <div className="flex flex-col flex-nowrap space-y-3">
+        <div className="flex flex-col flex-nowrap space-y-2">
           <span className="text-sm font-bold text-grey_font">Item List</span>
-          <div className="flex flex-col space-y-2">
-            <div className="flex flex-row flex-nowrap space-x-2 text-xs text-grey_font">
-              <div className="w-[12rem] md:w-36">Item Name</div>
-              <div className="w-10">Qty.</div>
-              <div className="w-20">Price</div>
-              <div className="w-20 pl-2">Total</div>
-            </div>
+
+          <div className="grid grid-cols-8 gap-1 md:gap-1  w-full">
+            <div className="col-span-4 text-xs text-grey_font ">Item Name</div>
+            <div className=" text-xs text-center text-grey_font">Qty.</div>
+            <div className=" text-xs text-center text-grey_font">Price</div>
+            <div className=" text-xs text-center text-grey_font">Total</div>
+
             {/* code snippet for single item*/}
-            <div className="flex flex-row flex-nowrap space-x-2 ">
-              <InputField inputType={"text"} styles={"w-44 md:w-32"} />
-              <InputField inputType={"number"} styles={"w-10"} />
-              <InputField inputType={"number"} styles={"w-20"} />
-              <div className="self-center px-2 text-darkishBlue_font dark:text-lightGrey_font">
-                1200
-              </div>
+
+            <InputField inputType={"text"} styles={"col-span-4 w-full"} />
+            <InputField inputType={"number"} styles={"w-full"} />
+            <InputField inputType={"number"} styles={"w-full "} />
+            <div className=" self-center text-center px-1 text-darkishBlue_font dark:text-lightGrey_font md:px-2">
+              1200
+            </div>
+            <Button styles={"px-2 self-center justify-self-end"}>
               <img
                 src={DeleteBin}
                 alt="delete icon"
-                className="w-4 h-5 self-center"
+                className=" w-4 ml-1 h-5"
               />
+            </Button>
+            {/* code snippet for single item*/}
+            <InputField inputType={"text"} styles={"col-span-4 w-full"} />
+            <InputField inputType={"number"} styles={"w-full"} />
+            <InputField inputType={"number"} styles={"w-full "} />
+            <div className=" self-center text-center px-1 text-darkishBlue_font dark:text-lightGrey_font md:px-2">
+              1200
             </div>
-            <div className="flex flex-row flex-nowrap space-x-2 ">
-              <InputField inputType={"text"} styles={"w-44 md:w-32"} />
-              <InputField inputType={"number"} styles={"w-10"} />
-              <InputField inputType={"number"} styles={"w-20"} />
-              <div className="self-center px-2 text-darkishBlue_font dark:text-lightGrey_font">
-                1200
-              </div>
+            <Button styles={"px-2 self-center justify-self-end"}>
               <img
                 src={DeleteBin}
                 alt="delete icon"
-                className="w-4 h-5 self-center"
+                className=" w-4 ml-1 h-5"
               />
-            </div>
+            </Button>
             {/* code snippet for single item*/}
           </div>
+
           <Button
-            styles={`w-full p-2.5 px-36 border-[1.5px] dark:bg-invoiceItem_dark_background text-darkishBlue_font 
-            dark:text-lightGrey_font dark:border-none border-[#bebebe8d] focus:outline-none md:px-32`}
+            styles={`w-full py-2.5 border-[1.5px] dark:bg-invoiceItem_dark_background text-darkishBlue_font 
+            text-center dark:text-lightGrey_font dark:border-none border-[#bebebe8d] focus:outline-none md:px-28 `}
           >
             + Add New Item
           </Button>
         </div>
       </form>
+    </div>
   );
 };
 
