@@ -25,7 +25,7 @@ const EditInvoice = () => {
         <InvoiceFormActionBtnsWrapper>
           <div className="float-right flex flex-row space-x-1 md:space-x-2">
             <Button
-              styles={`bg-editBtn_light_background dark:bg-editBtn_dark_background text-grey_font 
+              styles={`bg-[#00000012] dark:bg-editBtn_dark_background text-grey_font 
                 dark:text-white  py-2 text-xs px-1  font-semibold self-center  md:px-5 `}
             >
               Cancel
