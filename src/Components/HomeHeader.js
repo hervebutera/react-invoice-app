@@ -1,6 +1,7 @@
 import Button from "./Button";
+import { connect } from "react-redux";
 
-const HomeHeader = () => {
+const HomeHeader = (props) => {
   return (
     <div className="relative my-10 ">
       <div className="float-left flex flex-col space-y-1">
@@ -8,9 +9,10 @@ const HomeHeader = () => {
           Invoices
         </h1>
         <h3 className="text-xs font-medium text-grey_font dark:text-lightGrey_font">
-          <span className="hidden md:inline-flex">There are </span>
-          {" 7 "}
-          <span className="hidden md:inline-flex">total </span> invoices
+          <span className="hidden md:inline-flex">There {props.invoices.length > 1 ? "are":"is"} </span>
+          {` ${props.invoices.length} `}
+          <span className="hidden md:inline-flex">total </span>
+          {props.invoices.length > 1 ? " invoices" : " invoice"}
         </h3>
       </div>
       <div className="float-right mt-4 space-x-4 md:space-x-8">
@@ -30,4 +32,10 @@ const HomeHeader = () => {
   );
 };
 
-export default HomeHeader;
+const mapStateToProps = (state) => {
+  return {
+    invoices: state,
+  };
+};
+
+export default connect(mapStateToProps)(HomeHeader);
