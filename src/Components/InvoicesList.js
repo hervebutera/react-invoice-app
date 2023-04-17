@@ -1,17 +1,23 @@
 import InvoiceListItem from "./InvoiceListItem";
-import { connect } from "react-redux";
+import { useState, useEffect } from "react";
 
 const InvoicesList = (props) => {
+  const [invoices, setInvoices] = useState(props.invoices)
+  
+  useEffect(() => { 
+    setInvoices(props.invoices)
+  }, [props.invoices])
+
   return (
     <ul className="flex flex-col space-y-4">
-      {props.invoices.map((invoice) => {
+      {invoices.map((invoice) => {
         return (
           <InvoiceListItem
             key={invoice.id}
             invoiceId={invoice.invoiceCode}
             invoiceDueDate={invoice.invoiceSentDate}
             invoiceDueAmount={invoice.grandTotal}
-            invoiceSentTo={invoice.clientAddress.clientName}
+            invoiceSentTo={invoice.clientAddressClientName}
             status={invoice.invoiceStatus}
           />
         );
@@ -20,10 +26,4 @@ const InvoicesList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    invoices: state,
-  };
-};
-
-export default connect(mapStateToProps)(InvoicesList);
+export default InvoicesList;
