@@ -9,12 +9,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-body.dark {
+body {
   --scroll-track-background: #f1f1f1;
   --scroll-thumb-background: #a8a8a8;
 }
 
-body.light {
+.dark {
   --scroll-track-background: #141625;
   --scroll-thumb-background: #1f213a;
 }
@@ -36,9 +36,21 @@ input[type="number"] {
   background-color: #a8a8a8;
   border-radius: 10px;
 }
+.labelName {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #696b86;
+}
 
 @media only screen and (min-width: 500px) {
-    .invoice-form-layout {
-      width: 500px;
-    }
+  .invoice-form-layout {
+    width: 500px;
   }
+}
+
+@media (min-width: 768px) {
+  .labelName {
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+  }
+}
