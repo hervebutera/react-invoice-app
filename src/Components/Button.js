@@ -1,11 +1,11 @@
 const Button = (props) => {
   return (
-    <a
-      href="#"
+    <button
       className={` px-3 rounded-full text-xs ${props.styles} `}
+      onClick={props.onClick}
     >
       {props.children}
-    </a>
+    </button>
   );
 };
 
