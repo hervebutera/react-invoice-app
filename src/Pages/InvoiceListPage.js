@@ -3,10 +3,11 @@ import HomeHeader from "../Components/HomeHeader";
 import InvoicesList from "../Components/InvoicesList";
 import NewInvoice from "../Components/NewInvoice";
 import { connect } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const InvoiceListPage = (props) => {
   const [displayedInvoices, setDisplayedInvoices] = useState(props.invoices);
+  const [displayNewInvoice, setDisplayNewInvoice] = useState(false);
 
   const filterInvoicesByStatus = (status) => {
     if (status === "Filter by status" || status === "All") {
@@ -20,13 +21,30 @@ const InvoiceListPage = (props) => {
     }
   };
 
+  const handleDisplayNewInvoice = (statusBoolean) => {
+    return setDisplayNewInvoice(statusBoolean);
+  };
+
+  useEffect(() => {
+    setDisplayedInvoices(() => {
+      return props.invoices;
+    });
+  }, [props.invoices.length]);
+
   return (
     <>
       <HomePageLayout>
-        <HomeHeader filterByStatus={filterInvoicesByStatus} />
+        <HomeHeader
+          filterByStatus={filterInvoicesByStatus}
+          displayInvoiceForm={handleDisplayNewInvoice}
+        />
         <InvoicesList invoices={displayedInvoices} />
       </HomePageLayout>
-      <NewInvoice />
+      {displayNewInvoice === true ? (
+        <NewInvoice displayInvoiceForm={handleDisplayNewInvoice} />
+      ) : (
+        ""
+      )}
     </>
   );
 };
