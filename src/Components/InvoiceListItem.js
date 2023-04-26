@@ -6,9 +6,9 @@ const InvoiceListItem = (props) => {
     <li
       className="bg-invoiceItem_light_background dark:bg-invoiceItem_dark_background max-h-[7rem] 
     flex flex-col flex-wrap rounded-lg p-4  content-between md:max-h-[4rem] md:flex-row md:flex-nowrap
-    md:space-x-12 lg:space-x-9 "
+    md:space-x-12 lg:space-x-[4%] xl:space-x-[6%]"
     >
-      <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-8 md:ml-[1rem]">
+      <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-8 md:ml-[1rem] lg:space-x-[7%]">
         <div className="md:self-center">
           <span className="text-grey_font text-xs md:text-base">#</span>
           <span className="text-darkishBlue_font dark:text-darkWhite_font text-sm font-bold md:text-base">
@@ -16,7 +16,7 @@ const InvoiceListItem = (props) => {
           </span>
         </div>
 
-        <span className="text-xs text-grey_font dark:text-lightGrey_font md:self-center ">
+        <span className="text-xs text-grey_font dark:text-lightGrey_font md:self-center lg:w-[7rem] ">
           Due {props.invoiceDueDate}
         </span>
       </div>
@@ -27,16 +27,16 @@ const InvoiceListItem = (props) => {
         $ {props.invoiceDueAmount}
       </div>
       <div
-        className="self-end text-xs text-grey_font dark:text-lightGrey_font md:w-32 md:text-xs
-      md:self-center lg:w-32 "
+        className="text-start self-center text-xs text-grey_font dark:text-lightGrey_font md:w-36 md:text-xs
+       lg:w-40 "
       >
         {props.invoiceSentTo}
       </div>
-      <div className="flex flex-row flex-nowrap space-x-2 order-last lg:space-x-4">
-        <StatusLabel labelName={props.status} styles={" mt-6"} />
+      <div className=" order-last md:space-x-3 xl:space-x-4 ">
+        <StatusLabel labelName={props.status} styles={"float-right inline-block mt-6 md:-mt-[4px] md:float-left"} />
         <img
           src={ArrowHead}
-          className="hidden h-3 w-3 self-center cursor-pointer md:inline-flex"
+          className="hidden h-3 w-3 justify-center cursor-pointer mt-2.5 md:inline-block md:float-right"
         />
       </div>
     </li>
