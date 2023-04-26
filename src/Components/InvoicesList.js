@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const InvoicesList = (props) => {
   const [invoices, setInvoices] = useState(props.invoices)
   
-  useEffect(() => { 
+  useEffect(() => {
     setInvoices(props.invoices)
   }, [props.invoices])
 
@@ -15,9 +15,9 @@ const InvoicesList = (props) => {
           <InvoiceListItem
             key={invoice.id}
             invoiceId={invoice.invoiceCode}
-            invoiceDueDate={invoice.invoiceSentDate}
+            invoiceDueDate={invoice.paymentDeadlineDate}
             invoiceDueAmount={invoice.grandTotal}
-            invoiceSentTo={invoice.clientAddressClientName}
+            invoiceSentTo={invoice.clientName}
             status={invoice.invoiceStatus}
           />
         );
