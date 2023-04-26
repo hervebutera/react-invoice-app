@@ -35,11 +35,13 @@ const HomeHeader = (props) => {
           <option>Paid</option>
           <option>Draft</option>
         </select>
-        <Button styles="bg-purpleMainColor text-white font-bold pl-2 space-x-2 py-3.5">
-          <span className="bg-white pt-0 pb-1 px-2 mr-2  text-purpleMainColor text-lg font-bold rounded-full md:mr-3">
+        <Button styles="bg-purpleMainColor text-white font-bold pl-2 space-x-2 py-3 pt-2 "
+          onClick={() => props.displayInvoiceForm(true)}
+        >
+          <div className="bg-white pt-0 pb-1 px-2 mr-2 inline text-purpleMainColor text-lg font-bold rounded-full md:mr-3">
             +
-          </span>
-          New<span className="hidden md:inline-flex">Invoice</span>
+          </div>
+          New<div className="hidden md:inline-flex">Invoice</div>
         </Button>
       </div>
     </div>
