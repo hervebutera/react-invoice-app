@@ -6,7 +6,7 @@ const InvoiceItemInput = (props) => {
   const [invoiceItem, setInvoiceItem] = useState(props.inputValues);
   const handleOnDelete = (e) => {
     e.preventDefault();
-    props.onDelete(props.id);
+    props.onDelete(props.inputValues.id);
   };
 
   const handleOnChange = (e) => {
@@ -64,7 +64,7 @@ const InvoiceItemInput = (props) => {
         styles={"px-2 self-center justify-self-end"}
         onClick={handleOnDelete}
       >
-        <img src={DeleteBin} alt="delete icon" className=" w-4 ml-1 h-5" />
+        <img src={DeleteBin} alt="delete icon" className=" w-3 ml-1 h-4" />
       </Button>
     </>
   );
