@@ -33,7 +33,7 @@ const InvoiceListItem = (props) => {
         {props.invoiceSentTo}
       </div>
       <div className=" order-last md:space-x-3 xl:space-x-4 ">
-        <StatusLabel labelName={props.status} styles={"float-right inline-block mt-6 md:-mt-[4px] md:float-left"} />
+        <StatusLabel labelName={props.status} styles={"float-right inline-block mt-6 md:-mt-[5px] md:float-left"} />
         <img
           src={ArrowHead}
           className="hidden h-3 w-3 justify-center cursor-pointer mt-2.5 md:inline-block md:float-right"
