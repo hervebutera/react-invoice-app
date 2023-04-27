@@ -2,15 +2,17 @@ import HomePageLayout from "../Layouts/HomePageLayout";
 import CRUDbuttonsCard from "../Components/CRUDbuttonsCard";
 import InvoiceDetailsCard from "../Components/InvoiceDetailsCard";
 import InvoiceDetailsHeader from "../Components/InvoiceDetailsHeader";
-import EditInvoice from "../Components/EditInvoice";
+import { useLocation } from "react-router-dom";
 
 const InvoiceDetailsPage = () => {
+  let location = useLocation();
+  let { invoice } = location.state;
+
   return (
     <>
       <HomePageLayout>
-        <InvoiceDetailsHeader />
-        <InvoiceDetailsCard />
-        <EditInvoice />
+        <InvoiceDetailsHeader invoiceData={invoice} />
+        <InvoiceDetailsCard invoiceData={invoice} />
       </HomePageLayout>
       <CRUDbuttonsCard
         styles={
