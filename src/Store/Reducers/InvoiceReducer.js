@@ -45,6 +45,7 @@ const innitialState = [
     description: "Graphic design",
     items: [
       {
+        id: 0,
         itemName: "Marketing banners",
         quantity: 3,
         price: 100,
