@@ -1,6 +1,6 @@
-const InvoiceIdInfo = () => {
+const InvoiceIdInfo = ({ invoiceData }) => {
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6 ">
       <div
         className=" flex flex-col h-[10rem] space-y-5 md:h-[6rem] 
           md:space-y-0 md:content-between md:flex-wrap"
@@ -12,21 +12,21 @@ const InvoiceIdInfo = () => {
               className="text-darkishBlue_font dark:text-darkWhite_font 
                 text-sm font-bold md:text-base"
             >
-              {"RT340"}
+              {invoiceData.invoiceCode}
             </span>
           </div>
           <span className="text-xs text-grey_font dark:text-lightGrey_font md:text-sm ">
-            {"Graphic Design"}
+            {invoiceData.description}
           </span>
         </div>
         <div
           className="flex flex-col text-sm text-grey_font dark:text-lightGrey_font
              md:items-end "
         >
-          <span>{"Alex Ikogi"}</span>
-          <span>{"Janson Ntabashwa"}</span>
-          <span>{"Alex Ikogi"}</span>
-          <span>{"Alex Ikogi"}</span>
+          <span>{invoiceData.senderStreetAddress}</span>
+          <span>{invoiceData.senderPostCode}</span>
+          <span>{invoiceData.senderCityAddress}</span>
+          <span>{invoiceData.senderCountryAddress}</span>
         </div>
       </div>
       <div className="flex flex-col space-y-8 md:flex-row md:space-y-0 md:space-x-20">
@@ -40,7 +40,7 @@ const InvoiceIdInfo = () => {
                 Invoice Date
               </span>
               <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
-                {"21 Aug 2021"}
+                {invoiceData.invoiceSentDate}
               </span>
             </div>
             <div className="flex flex-col space-y-1">
@@ -48,7 +48,7 @@ const InvoiceIdInfo = () => {
                 Payment Due
               </span>
               <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
-                {"21 Sep 2021"}
+                {invoiceData.paymentDeadlineDate}
               </span>
             </div>
           </div>
@@ -56,14 +56,14 @@ const InvoiceIdInfo = () => {
             <span className="text-grey_font dark:text-lightGrey_font  text-sm">
               Bill To
             </span>
-            <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
-              {"Alex Grim"}
+            <span className="text-darkishBlue_font dark:text-darkWhite_font text-base  break-words font-bold md:text-lg">
+              {invoiceData.clientName}
             </span>
             <div className="flex flex-col text-sm text-grey_font dark:text-lightGrey_font ">
-              <span>{"Alex Ikogi"}</span>
-              <span>{"Janson Ntabashwa"}</span>
-              <span>{"Alex Ikogi"}</span>
-              <span>{"Alex Ikogi"}</span>
+              <span>{invoiceData.clientStreetAddress}</span>
+              <span>{invoiceData.clientPostCode}</span>
+              <span>{invoiceData.clientCityAddress}</span>
+              <span>{invoiceData.clientCountryAddress}</span>
             </div>
           </div>
         </div>
@@ -71,8 +71,8 @@ const InvoiceIdInfo = () => {
           <span className="text-grey_font dark:text-lightGrey_font text-sm">
             Send To
           </span>
-          <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
-            {"johndoe@example.com"}
+          <span className="text-darkishBlue_font dark:text-darkWhite_font text-base break-all font-bold md:text-lg">
+            {invoiceData.clientEmail}
           </span>
         </div>
       </div>
