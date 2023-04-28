@@ -4,7 +4,7 @@ import Button from "./Button";
 import ArrowHead from "../Assets/imgs/arrowhead.png";
 import { Link } from "react-router-dom";
 
-const InvoiceDetailsHeader = ({invoiceData}) => {  
+const InvoiceDetailsHeader = (props) => {  
   return (
     <>
 
@@ -28,11 +28,11 @@ const InvoiceDetailsHeader = ({invoiceData}) => {
             Status
           </span>
           <StatusLabel
-            labelName={invoiceData.invoiceStatus}
+            labelName={props.invoiceData.invoiceStatus}
             styles={"float-right mt-0 md:ml-5"}
           />
         </div>
-        <CRUDbuttonsCard styles={"hidden md:block md:float-right"} />
+        <CRUDbuttonsCard styles={"hidden md:block md:float-right"} displayInvoiceForm={props.displayInvoiceForm} />
       </div>
     </>
   );

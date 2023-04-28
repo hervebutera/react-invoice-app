@@ -1,10 +1,8 @@
 import InvoiceFormLayout from "../Layouts/InvoiceFormLayout";
 import InvoiceForm from "./InvoiceForm";
-import InvoiceFormActionBtnsWrapper from "./FormActionBtns";
 import Modal from "./modal";
-import Button from "./Button";
 
-const EditInvoice = () => {
+const EditInvoice = (props) => {
   return (
     <Modal>
       <InvoiceFormLayout>
@@ -21,24 +19,7 @@ const EditInvoice = () => {
             {"RT340"}
           </span>
         </h1>
-        <InvoiceForm />
-        <InvoiceFormActionBtnsWrapper>
-          <div className="float-right flex flex-row space-x-1 md:space-x-2">
-            <Button
-              styles={`bg-[#00000012] dark:bg-editBtn_dark_background text-grey_font 
-                dark:text-white  py-2 text-xs px-1  font-semibold self-center  md:px-5 `}
-            >
-              Cancel
-            </Button>
-            <Button
-              styles={
-                "bg-purpleMainColor py-2.5 text-xs px-1 text-white font-semibold self-center  md:px-5 "
-              }
-            >
-              Save Changes
-            </Button>
-          </div>
-        </InvoiceFormActionBtnsWrapper>
+        <InvoiceForm invoice={props.invoiceData} type="edit" displayInvoiceForm={props.displayInvoiceForm} />
       </InvoiceFormLayout>
     </Modal>
   );

@@ -14,6 +14,7 @@ const innitialState = [
     clientCountryAddress: "Rwanda",
     invoiceSentDate: "23/04/2023",
     paymentDeadlineDate: "23/05/2023",
+    duePaymentDays: "30",
     description: "Graphic design",
     items: [
       {
@@ -42,6 +43,7 @@ const innitialState = [
     clientCountryAddress: "Rwanda",
     invoiceSentDate: "23/04/2023",
     paymentDeadlineDate: "23/05/2023",
+    duePaymentDays: "30",
     description: "Graphic design",
     items: [
       {
@@ -65,7 +67,15 @@ const InvoiceReducer = (state = innitialState, action) => {
         action.payload
       ];
       break;
-  
+    case "UPDATE_INVOICE":
+      for (let i = 0; i < state.length; i++) {
+        if (state[i].id === action.payload.id) {
+          let newState = [...state];
+          newState[i] = action.payload;
+          state = newState;
+        }
+      }
+      break;
     default:
       break;
   }

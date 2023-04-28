@@ -2,6 +2,7 @@ import Button from "./Button";
 import { useEffect, useState } from "react";
 import InvoiceItemInput from "./InvoiceItemInput";
 import NewInvoiceActionBtns from "./NewInvoiceActionBtns";
+import EditInvoiceActionBtns from "./EditInvoiceActionBtns";
 
 const InvoiceForm = (props) => {
   // assigning today's date
@@ -9,11 +10,22 @@ const InvoiceForm = (props) => {
   let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
   let currentDate = String(date.getDate()).padStart(2, "0");
   let currentYear = String(date.getFullYear());
+  {/* let invoiceDateYear = invoiceData.invoiceSentDate.substr(0, 4);
+      let invoiceDateMonth = invoiceData.invoiceSentDate.substr(5, 2);
+      let invoiceDateDay = invoiceData.invoiceSentDate.substr(8, 2);
+    */ }
   let defaultCurrentDate = `${currentYear}-${currentMonth}-${currentDate}`;
   const [emptyDateAlert, setEmptyDateAlert] = useState(false);
   const [invoiceData, setInvoiceData] = useState(() => {
     if (props.invoice !== undefined && props.invoice !== "") {
-      return props.invoice;
+      let invoiceDateYear = props.invoice.invoiceSentDate.substr(6, 4);
+      let invoiceDateMonth = props.invoice.invoiceSentDate.substr(3, 2);
+      let invoiceDateDay = props.invoice.invoiceSentDate.substr(0, 2);
+      let displayedCurrentDate = `${invoiceDateYear}-${invoiceDateMonth}-${invoiceDateDay}`
+      return {
+        ...props.invoice,
+        invoiceSentDate: displayedCurrentDate,
+      };
     } else {
       return {
         id: 0,
@@ -30,6 +42,7 @@ const InvoiceForm = (props) => {
         clientCountryAddress: "",
         invoiceSentDate: defaultCurrentDate,
         paymentDeadlineDate: "",
+        paymentTerms: "",
         description: "",
         items: [
           {
@@ -126,6 +139,7 @@ const InvoiceForm = (props) => {
     }
   };
 
+  
   const setPaymentDeadlineDate = () => {
     if (invoiceData.invoiceSentDate !== "") {
       let invoiceDateYear = invoiceData.invoiceSentDate.substr(0, 4);
@@ -155,7 +169,8 @@ const InvoiceForm = (props) => {
             "0"
           )}/${String(myNewDate.getMonth() + 1).padStart(2, "0")}/${String(
             myNewDate.getFullYear()
-          )}`,
+            )}`,
+          duePaymentDays: selectedOption,
         };
       });
     }
@@ -325,6 +340,7 @@ const InvoiceForm = (props) => {
                  dark:text-lightGrey_font dark:border-none border-[#bebebe8d] rounded-[5px] focus:outline-none 
                  text-sm py-2 px-4"
                   id="duePaymentDays"
+                  value={invoiceData.duePaymentDays}
                   onChange={() => {
                     setDefaultDateValue();
                     setPaymentDeadlineDate();
@@ -384,10 +400,14 @@ const InvoiceForm = (props) => {
           </div>
         </form>
       </div>
-      <NewInvoiceActionBtns
-        displayInvoiceForm={props.displayInvoiceForm}
-        invoiceData={invoiceData}
-      />
+      {props.type === "new" ? (
+        <NewInvoiceActionBtns
+          displayInvoiceForm={props.displayInvoiceForm}
+          invoiceData={invoiceData}
+        />
+      ) : (
+          <EditInvoiceActionBtns invoiceData={ invoiceData } displayInvoiceForm={props.displayInvoiceForm} />
+      )}
     </>
   );
 };
