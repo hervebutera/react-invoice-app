@@ -39,7 +39,7 @@ const InvoiceIdInfo = ({ invoiceData }) => {
               <span className="text-grey_font dark:text-lightGrey_font text-sm">
                 Invoice Date
               </span>
-              <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
+              <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold ">
                 {invoiceData.invoiceSentDate}
               </span>
             </div>
@@ -47,7 +47,7 @@ const InvoiceIdInfo = ({ invoiceData }) => {
               <span className="text-grey_font dark:text-lightGrey_font text-sm">
                 Payment Due
               </span>
-              <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold md:text-lg">
+              <span className="text-darkishBlue_font dark:text-darkWhite_font text-base font-bold ">
                 {invoiceData.paymentDeadlineDate}
               </span>
             </div>
@@ -56,7 +56,7 @@ const InvoiceIdInfo = ({ invoiceData }) => {
             <span className="text-grey_font dark:text-lightGrey_font  text-sm">
               Bill To
             </span>
-            <span className="text-darkishBlue_font dark:text-darkWhite_font text-base  break-words font-bold md:text-lg">
+            <span className="text-darkishBlue_font dark:text-darkWhite_font text-base break-words font-bold md:break-keep">
               {invoiceData.clientName}
             </span>
             <div className="flex flex-col text-sm text-grey_font dark:text-lightGrey_font ">
@@ -71,7 +71,7 @@ const InvoiceIdInfo = ({ invoiceData }) => {
           <span className="text-grey_font dark:text-lightGrey_font text-sm">
             Send To
           </span>
-          <span className="text-darkishBlue_font dark:text-darkWhite_font text-base break-all font-bold md:text-lg">
+          <span className="text-darkishBlue_font dark:text-darkWhite_font text-base break-all font-bold md:break-keep ">
             {invoiceData.clientEmail}
           </span>
         </div>
