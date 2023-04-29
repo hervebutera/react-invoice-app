@@ -11,4 +11,11 @@ export const updateInvoice = (invoice) => {
       payload: invoice,
     };
 };
+
+export const deleteInvoice = (id) => { 
+    return {
+        type: "DELETE_INVOICE",
+        payload: id,
+    }
+}
   

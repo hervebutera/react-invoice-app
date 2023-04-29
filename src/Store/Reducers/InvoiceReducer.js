@@ -76,6 +76,11 @@ const InvoiceReducer = (state = innitialState, action) => {
         }
       }
       break;
+    case "DELETE_INVOICE":
+      state = state.filter(invoice => {
+        return invoice.id !== action.payload;
+      });
+      break;
     default:
       break;
   }
