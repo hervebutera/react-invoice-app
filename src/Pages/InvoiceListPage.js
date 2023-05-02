@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const InvoiceListPage = (props) => {
   const [displayedInvoices, setDisplayedInvoices] = useState(props.invoices);
-  const [displayNewInvoice, setDisplayNewInvoice] = useState(false);
+  const [displayInvoiceForm, setDisplayInvoiceForm] = useState(false);
 
   const filterInvoicesByStatus = (status) => {
     if (status === "Filter by status" || status === "All") {
@@ -21,8 +21,8 @@ const InvoiceListPage = (props) => {
     }
   };
 
-  const handleDisplayNewInvoice = (statusBoolean) => {
-    return setDisplayNewInvoice(statusBoolean);
+  const handleDisplayInvoiceForm = (statusBoolean) => {
+    return setDisplayInvoiceForm(statusBoolean);
   };
 
   useEffect(() => {
@@ -36,12 +36,12 @@ const InvoiceListPage = (props) => {
       <HomePageLayout>
         <HomeHeader
           filterByStatus={filterInvoicesByStatus}
-          displayInvoiceForm={handleDisplayNewInvoice}
+          displayInvoiceForm={handleDisplayInvoiceForm}
         />
         <InvoicesList invoices={displayedInvoices} />
       </HomePageLayout>
-      {displayNewInvoice === true ? (
-        <NewInvoice displayInvoiceForm={handleDisplayNewInvoice} />
+      {displayInvoiceForm === true ? (
+        <NewInvoice displayInvoiceForm={handleDisplayInvoiceForm} />
       ) : (
         ""
       )}
