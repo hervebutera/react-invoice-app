@@ -32,7 +32,11 @@ const InvoiceDetailsHeader = (props) => {
             styles={"float-right mt-0 md:ml-5"}
           />
         </div>
-        <CRUDbuttonsCard styles={"hidden md:block md:float-right"} displayInvoiceForm={props.displayInvoiceForm} />
+        <CRUDbuttonsCard
+          styles={"hidden md:block md:float-right"}
+          displayInvoiceForm={props.displayInvoiceForm}
+          invoiceData={props.invoiceData}
+        />
       </div>
     </>
   );
