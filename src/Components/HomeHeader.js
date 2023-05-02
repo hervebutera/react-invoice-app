@@ -22,10 +22,10 @@ const HomeHeader = (props) => {
           {props.invoices.length > 1 ? " invoices" : " invoice"}
         </h3>
       </div>
-      <div className="float-right mt-4 space-x-4 md:space-x-8">
+      <div className="float-right mt-2 space-x-4 md:space-x-8">
         <select
           id="selectElement"
-          className="bg-body_light_background dark:bg-body_dark_background  w-[3.75rem] font-semibold
+          className="bg-body_light_background dark:bg-body_dark_background  w-[3.90rem] font-semibold
                    text-darkishBlue_font dark:text-darkWhite_font focus:outline-none md:w-36"
           onChange={handleFilterValueChange}
         >

@@ -179,10 +179,9 @@ export const InvoiceForm = (props) => {
 
   return (
     <>
-      <div className="px-5 pt-8 md:px-10 lg:pl-24">
+      <div className="px-5 pt-8  overflow-y-auto md:px-10 lg:pl-24" id="invoice-form">
         <form
-          className="flex flex-col space-y-8 overflow-auto pr-3"
-          id="invoice-form"
+          className="flex flex-col space-y-8 pr-3"
         >
           <div className="flex flex-col flex-nowrap space-y-2">
             <span className="w-full text-xs font-bold text-purpleMainColor">
