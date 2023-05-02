@@ -179,7 +179,7 @@ export const InvoiceForm = (props) => {
 
   return (
     <>
-      <div className="px-5 pt-8  overflow-y-auto md:px-10 lg:pl-24" id="invoice-form">
+      <div className="px-5 pt-8  lg:overflow-y-auto md:px-10 lg:pl-24" id="invoice-form">
         <form
           className="flex flex-col space-y-8 pr-3"
         >
