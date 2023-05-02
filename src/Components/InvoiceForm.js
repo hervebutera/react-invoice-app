@@ -4,16 +4,12 @@ import InvoiceItemInput from "./InvoiceItemInput";
 import NewInvoiceActionBtns from "./NewInvoiceActionBtns";
 import EditInvoiceActionBtns from "./EditInvoiceActionBtns";
 
-const InvoiceForm = (props) => {
+export const InvoiceForm = (props) => {
   // assigning today's date
   let date = new Date();
   let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
   let currentDate = String(date.getDate()).padStart(2, "0");
   let currentYear = String(date.getFullYear());
-  {/* let invoiceDateYear = invoiceData.invoiceSentDate.substr(0, 4);
-      let invoiceDateMonth = invoiceData.invoiceSentDate.substr(5, 2);
-      let invoiceDateDay = invoiceData.invoiceSentDate.substr(8, 2);
-    */ }
   let defaultCurrentDate = `${currentYear}-${currentMonth}-${currentDate}`;
   const [emptyDateAlert, setEmptyDateAlert] = useState(false);
   const [invoiceData, setInvoiceData] = useState(() => {
@@ -21,11 +17,9 @@ const InvoiceForm = (props) => {
       let invoiceDateYear = props.invoice.invoiceSentDate.substr(6, 4);
       let invoiceDateMonth = props.invoice.invoiceSentDate.substr(3, 2);
       let invoiceDateDay = props.invoice.invoiceSentDate.substr(0, 2);
-      let displayedCurrentDate = `${invoiceDateYear}-${invoiceDateMonth}-${invoiceDateDay}`
-      return {
-        ...props.invoice,
-        invoiceSentDate: displayedCurrentDate,
-      };
+      let displayedCurrentDate = `${invoiceDateYear}-${invoiceDateMonth}-${invoiceDateDay}`;
+
+      return { ...props.invoice, invoiceSentDate: displayedCurrentDate };
     } else {
       return {
         id: 0,
@@ -139,7 +133,6 @@ const InvoiceForm = (props) => {
     }
   };
 
-  
   const setPaymentDeadlineDate = () => {
     if (invoiceData.invoiceSentDate !== "") {
       let invoiceDateYear = invoiceData.invoiceSentDate.substr(0, 4);
@@ -169,7 +162,7 @@ const InvoiceForm = (props) => {
             "0"
           )}/${String(myNewDate.getMonth() + 1).padStart(2, "0")}/${String(
             myNewDate.getFullYear()
-            )}`,
+          )}`,
           duePaymentDays: selectedOption,
         };
       });
@@ -406,10 +399,21 @@ const InvoiceForm = (props) => {
           invoiceData={invoiceData}
         />
       ) : (
-          <EditInvoiceActionBtns invoiceData={ invoiceData } displayInvoiceForm={props.displayInvoiceForm} />
+        <EditInvoiceActionBtns
+          invoiceData={invoiceData}
+          displayInvoiceForm={props.displayInvoiceForm}
+        />
       )}
     </>
   );
 };
 
-export default InvoiceForm;
+export const formatSavedDate = (date) => {
+  let invoiceDateYear = date.substr(0, 4);
+  let invoiceDateMonth = date.substr(5, 2);
+  let invoiceDateDay = date.substr(8, 2);
+  let displayedDate = `${invoiceDateDay}/${invoiceDateMonth}/${invoiceDateYear}`;
+
+  return displayedDate;
+}
+

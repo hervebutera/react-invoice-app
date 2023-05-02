@@ -1,5 +1,5 @@
 import InvoiceFormLayout from "../Layouts/InvoiceFormLayout.js";
-import InvoiceForm from "./InvoiceForm.js";
+import { InvoiceForm } from "./InvoiceForm.js";
 import Modal from "./modal.js";
 
 const NewInvoice = (props) => {
@@ -12,7 +12,7 @@ const NewInvoice = (props) => {
         >
           New Invoice
         </h1>
-        <InvoiceForm invoice={""} displayInvoiceForm={props.displayInvoiceForm} />
+        <InvoiceForm invoice={""} type="new" displayInvoiceForm={props.displayInvoiceForm} />
       </InvoiceFormLayout>
     </Modal>
   );

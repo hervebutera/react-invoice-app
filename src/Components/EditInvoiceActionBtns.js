@@ -1,6 +1,7 @@
 import Button from "./Button";
 import { connect } from "react-redux";
 import { updateInvoice } from "../Store/Actions/invoiceAction";
+import { formatSavedDate } from "./InvoiceForm";
 
 const EditInvoiceActionBtns = (props) => {
   const handleInvoiceData = () => {
@@ -9,10 +10,14 @@ const EditInvoiceActionBtns = (props) => {
     for (let i = 0; i < props.invoiceData.items.length; i++) {
       grandTotal += props.invoiceData.items[i].itemTotal;
     }
+
+    let displayedDate = formatSavedDate(props.invoiceData.invoiceSentDate);
+
     if (grandTotal !== 0 && props.invoiceData.sentDate !== "") {
       const invoiceData = {
         ...props.invoiceData,
         grandTotal: grandTotal,
+        invoiceSentDate: displayedDate,
       };
 
       return invoiceData;
