@@ -1,5 +1,5 @@
 import InvoiceFormLayout from "../Layouts/InvoiceFormLayout";
-import { InvoiceForm } from "./InvoiceForm";
+import InvoiceForm from "./InvoiceForm";
 import Modal from "./modal";
 
 const EditInvoice = (props) => {

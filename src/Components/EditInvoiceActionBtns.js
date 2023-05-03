@@ -1,30 +1,11 @@
 import Button from "./Button";
 import { connect } from "react-redux";
 import { updateInvoice } from "../Store/Actions/invoiceAction";
-import { formatSavedDate } from "./InvoiceForm";
 
 const EditInvoiceActionBtns = (props) => {
-  const handleInvoiceData = () => {
-    let grandTotal = 0;
-
-    for (let i = 0; i < props.invoiceData.items.length; i++) {
-      grandTotal += props.invoiceData.items[i].itemTotal;
-    }
-
-    let displayedDate = formatSavedDate(props.invoiceData.invoiceSentDate);
-
-    if (grandTotal !== 0 && props.invoiceData.sentDate !== "") {
-      const invoiceData = {
-        ...props.invoiceData,
-        grandTotal: grandTotal,
-        invoiceSentDate: displayedDate,
-      };
-
-      return invoiceData;
-    }
-  };
+  
   const handleSubmitInvoice = () => {
-    const invoiceData = handleInvoiceData();
+    const invoiceData = props.handleInvoiceData(props.invoiceData);
     if (invoiceData !== undefined) {
       props.updateInvoice(invoiceData);
       props.displayInvoiceForm(false);
@@ -38,15 +19,16 @@ const EditInvoiceActionBtns = (props) => {
     >
       <div className="float-right flex flex-row space-x-1 md:space-x-2">
         <Button
-          styles={`bg-[#00000012] dark:bg-editBtn_dark_background text-grey_font 
-                dark:text-white  py-2 text-xs px-1  font-semibold self-center  md:px-5 `}
+          styles={`bg-[#fafcfe] dark:bg-editBtn_dark_background text-grey_font 
+                dark:text-white  py-2 text-xs px-1  font-semibold self-center  md:px-5
+                hover:bg-[#e6e8ec] dark:hover:bg-[#2e3553]`}
           onClick={() => props.displayInvoiceForm(false)}
         >
           Cancel
         </Button>
         <Button
           styles={
-            "bg-purpleMainColor py-2.5 text-xs px-1 text-white font-semibold self-center  md:px-5 "
+            "bg-purpleMainColor py-2.5 text-xs px-1 text-white font-semibold self-center  md:px-5 hover:bg-[#6844fa]"
           }
           onClick={handleSubmitInvoice}
         >

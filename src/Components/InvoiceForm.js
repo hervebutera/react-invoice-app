@@ -4,7 +4,7 @@ import InvoiceItemInput from "./InvoiceItemInput";
 import NewInvoiceActionBtns from "./NewInvoiceActionBtns";
 import EditInvoiceActionBtns from "./EditInvoiceActionBtns";
 
-export const InvoiceForm = (props) => {
+const InvoiceForm = (props) => {
   // assigning today's date
   let date = new Date();
   let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
@@ -36,7 +36,7 @@ export const InvoiceForm = (props) => {
         clientCountryAddress: "",
         invoiceSentDate: defaultCurrentDate,
         paymentDeadlineDate: "",
-        paymentTerms: "",
+        duePaymentDays: "30",
         description: "",
         items: [
           {
@@ -168,6 +168,55 @@ export const InvoiceForm = (props) => {
       });
     }
   };
+
+  const handleInvoiceData = (invoice) => { 
+    const keys = Object.keys(invoice);
+    let validation = true;
+    let grandTotal = 0;
+    keys.forEach((key, index) => {
+
+      if (typeof (invoice[key]) === "string" && invoice[key].trim().length === 0
+        && key !== "invoiceStatus") {
+        validation = false;
+        document.getElementById(key).style.borderStyle = "solid";
+        document.getElementById(key).style.borderWidth = "1.5px";
+        document.getElementById(key).style.borderColor = "red";
+      }
+
+    })
+    if (invoice.items.length === 0) {
+      validation = false;
+      document.getElementById("itemsAlert").style.display = "block";
+      document.getElementById("itemsAlert").innerHTML = "Please add an item before submitting this invoice!"
+    } else {
+      invoice.items.forEach((item, index) => { 
+
+        if (item.itemName.trim() === "") {
+          validation = false;
+          document.getElementById("itemsAlert").style.display = "block";
+          document.getElementById("itemsAlert").innerHTML = "An item name cannot be empty!";
+        } 
+        if (item.quantity === 0) {
+          validation = false;
+          document.getElementById("itemsAlert").style.display = "block";
+          document.getElementById("itemsAlert").innerHTML = "An item quantity cannot be 0!";
+        }  
+        grandTotal += item.itemTotal;
+      })
+    }
+    if (validation === true) {
+      let invoiceDateYear = invoice.invoiceSentDate.substr(0, 4);
+      let invoiceDateMonth = invoice.invoiceSentDate.substr(5, 2);
+      let invoiceDateDay = invoice.invoiceSentDate.substr(8, 2);
+      let displayedDate = `${invoiceDateDay}/${invoiceDateMonth}/${invoiceDateYear}`;
+      
+      return {
+        ...invoice,
+        invoiceSentDate: displayedDate,
+        grandTotal: grandTotal,
+      }
+    }
+  }
 
   useEffect(() => {
     setPaymentDeadlineDate();
@@ -364,7 +413,7 @@ export const InvoiceForm = (props) => {
               </div>
               <div className=" text-xs text-center text-grey_font">Qty.</div>
               <div className=" text-xs text-center text-grey_font">Price</div>
-              <div className=" text-xs text-center text-grey_font">Total</div>
+              <div className=" text-xs text-center text-grey_font ml-4">Total</div>
 
               {/* code snippet for invoice items list*/}
               {invoiceData.items.map((invoiceItem) => {
@@ -389,6 +438,7 @@ export const InvoiceForm = (props) => {
             >
               + Add New Item
             </Button>
+            <span className="hidden ml-3 text-xs text-[red]" id="itemsAlert"></span>
           </div>
         </form>
       </div>
@@ -396,23 +446,17 @@ export const InvoiceForm = (props) => {
         <NewInvoiceActionBtns
           displayInvoiceForm={props.displayInvoiceForm}
           invoiceData={invoiceData}
+          handleInvoiceData={handleInvoiceData}
         />
       ) : (
         <EditInvoiceActionBtns
           invoiceData={invoiceData}
           displayInvoiceForm={props.displayInvoiceForm}
+          handleInvoiceData={handleInvoiceData}  
         />
       )}
     </>
   );
 };
 
-export const formatSavedDate = (date) => {
-  let invoiceDateYear = date.substr(0, 4);
-  let invoiceDateMonth = date.substr(5, 2);
-  let invoiceDateDay = date.substr(8, 2);
-  let displayedDate = `${invoiceDateDay}/${invoiceDateMonth}/${invoiceDateYear}`;
-
-  return displayedDate;
-}
-
+export default InvoiceForm;

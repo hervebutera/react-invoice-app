@@ -1,36 +1,19 @@
 import { addInvoice } from "../Store/Actions/invoiceAction";
 import Button from "./Button";
 import { connect } from "react-redux";
-import { formatSavedDate } from "./InvoiceForm";
 
 const NewInvoiceActionBtns = (props) => {
-  const handleNewInvoiceData = (invoiceStatus) => {
-    let newInvoiceId = props.invoices[props.invoices.length - 1].id + 1;
-    let grandTotal = 0;
-
-    for (let i = 0; i < props.invoiceData.items.length; i++) {
-      grandTotal += props.invoiceData.items[i].itemTotal;
-    }
-
-    let displayedDate = formatSavedDate(props.invoiceData.invoiceSentDate);
-
-    if (grandTotal !== 0) {
-      const invoiceData = {
-        ...props.invoiceData,
-        id: newInvoiceId,
-        invoiceStatus: invoiceStatus,
-        grandTotal: grandTotal,
-        invoiceSentDate: displayedDate,
-      };
-
-      return invoiceData;
-    }
-  };
 
   const handleSubmitInvoice = (invoiceStatus) => {
-    const invoiceData = handleNewInvoiceData(invoiceStatus);
+    const invoiceData = props.handleInvoiceData(props.invoiceData);
+    let newInvoiceId = props.invoices[props.invoices.length - 1].id + 1;
     if (invoiceData !== undefined) {
-      props.addInvoice(invoiceData);
+        const newInvoiceData = {
+          ...invoiceData,
+          id: newInvoiceId,
+          invoiceStatus: invoiceStatus,
+        };
+      props.addInvoice(newInvoiceData);
       props.displayInvoiceForm(false);
     }
   };
@@ -63,7 +46,7 @@ const NewInvoiceActionBtns = (props) => {
         </Button>
         <Button
           styles={
-            "bg-purpleMainColor py-2 text-xs px-1 text-white font-semibold self-center  md:px-5 md:py-2"
+            "bg-purpleMainColor py-2 text-xs px-1 text-white font-semibold self-center  md:px-5 md:py-2 hover:bg-[#6844fa]"
           }
           onClick={() => {
             handleSubmitInvoice("Pending");
