@@ -32,7 +32,7 @@ const InvoiceIdInfo = ({ invoiceData }) => {
       <div className="flex flex-col space-y-8 md:flex-row md:space-y-0 md:space-x-20">
         <div
           className="flex flex-col space-y-8 min-[360px]:flex-row min-[360px]:space-y-0 
-            min-[360px]:space-x-16 min-[768px]:space-x-20"
+            min-[360px]:space-x-16 min-[768px]:space-x-14"
         >
           <div className="flex flex-col space-y-12">
             <div className="flex flex-col space-y-1">

@@ -51,13 +51,13 @@ const InvoiceItemInput = (props) => {
       />
       <input
         type="number"
-        className={props.className}
+        className={` ${props.className} w-[2.75rem] px-0.5`}
         value={invoiceItem.price}
         id="price"
         onChange={handleOnChange}
       />
 
-      <div className=" self-center text-center px-1 text-darkishBlue_font dark:text-lightGrey_font md:px-2">
+      <div className=" self-center text-center ml-2 px-1 text-darkishBlue_font dark:text-lightGrey_font md:px-2 md:ml-1">
         {invoiceItem.itemTotal}
       </div>
       <Button

@@ -17,7 +17,7 @@ const CRUDbuttonsCard = (props) => {
     <div className={props.styles}>
       <div className=" flex flex-row space-x-2 justify-center">
         <Button
-          styles={` bg-editBtn_light_background dark:bg-editBtn_dark_background text-grey_font 
+          styles={` bg-editBtn_light_background dark:bg-editBtn_dark_background hover:bg-[#e6e8ec] dark:hover:bg-[#2e3553] text-grey_font 
             dark:text-lightGrey_font font-semibold px-5 py-3 self-center`}
           onClick={() => props.displayInvoiceForm(true)}
         >
@@ -25,7 +25,7 @@ const CRUDbuttonsCard = (props) => {
         </Button>
         <Button
           styles={
-            " bg-deleteBtn_background text-white text-sm font-bold px-5 py-3.5 self-center"
+            " bg-deleteBtn_background text-white text-sm font-bold px-5 py-3.5 self-center hover:bg-[#ec474a]"
           }
           onClick={handleDeleteInvoice}
         >
@@ -33,7 +33,7 @@ const CRUDbuttonsCard = (props) => {
         </Button>
         <Button
           styles={
-            " bg-purpleMainColor text-white text-sm font-bold px-5 py-3.5 self-center"
+            " bg-purpleMainColor text-white text-sm font-bold px-5 py-3.5 self-center hover:bg-[#6844fa]"
           }
           onClick={handleUpdateInvoice}
         >
